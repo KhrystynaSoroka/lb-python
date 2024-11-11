@@ -1,21 +1,14 @@
-num = [56, 78, 32, 45, 17, 20]
-print("Початковий список:", num)
+import random
 
-num.insert(1, -5)
-print("Список після додавання -5:", num)
+n = int(input("Введіть кількість чисел в масиві: ")) 
+list_x = [random.randint(0, 50) for _ in range(n)]
+list_y = [random.randint(0, 50) for _ in range(n)]
 
-min_num = min(num)
-max_num = max(num)
-print("Мінімальний елемент:", min_num)
-print("Максимальний елемент:", max_num)
+list = []
+for x, y in zip(list_x, list_y):
+    list.append(x)
+    list.append(y)
 
-new_num = [1, 2, 3]
-num.insert(3, new_num)
-print("Список після додавання [1, 2, 3]:", num)
-
-name = ["Сорока", "Христина"]
-num.append(name)
-print("Список після додавання прізвища та імені:", num)
-
-count = len(num)
-print("Кількість елементів у списку:", count)
+print("Список X:", list_x)
+print("Список Y:", list_y)
+print("Поєднаний список:", list)

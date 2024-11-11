@@ -1,21 +1,24 @@
-C = ["Кава", "Шоколад", "Чай зелений", "Спагетті", "Томатний соус", 
-     "Упаковка яєць", "Хліб", "Чорний чай", "Помідори", "Огірки", 
-     "Сметана", "Цибуля", "Льодяники", "Картопля", "Сіль", 
-     "Морква", "Печиво", "Серветки", "Горішки", "Сир"]
+import random
 
-A = [120, 200, 50, 75, 150, 90, 180, 210, 300, 100, 
-     130, 60, 170, 80, 220, 160, 140, 110, 190, 250] 
+n = len(input("Введіть ім'я: "))    
+m = len(input("Введіть прізвище: ")) 
+matrix = [[random.randint(0, 20) for _ in range(n)] for _ in range(m)]
+print("Початкова матриця:")
+for i in matrix:
+    print(i)
 
-B = [90, 45, 57, 34.5, 60, 68, 27.5, 34.5, 67, 72,
-     48, 34, 15, 14, 26, 23, 36, 9, 13, 50]  
-sum_prod=0
-for i in range(20):
-    sum_prod+=A[i]*B[i]
-average_price = sum(B)/20
-max_count = max(A)
-max_index = A.index(max_count)
-most_stocked_product = C[max_index]
+max = min = matrix[0][0]
+max_index = min_index = 0
+for i in range(m):
+    for j in range(n):
+        if matrix[i][j] > max:
+            max = matrix[i][j]
+            max_index = i
+        if matrix[i][j] < min:
+            min = matrix[i][j]
+            min_index = i
 
-print(f"Загальна вартість товарів на складі: {sum_prod} грн")
-print(f"Середня ціна товарів: {average_price} грн")
-print(f"Товар, якого найбільше на складі: {most_stocked_product} (кількість: {max_count})")
+matrix[max_index], matrix[min_index] = matrix[min_index], matrix[max_index]
+print("\nМатриця після заміни рядків:")
+for i in matrix:
+    print(i)
