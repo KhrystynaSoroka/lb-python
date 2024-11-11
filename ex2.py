@@ -1,22 +1,10 @@
-text = input("Введіть текстовий рядок: ")
-words = []
-for i in text.split():
-    if 'а' not in i.lower():  
-        words.append(i)
-
-numbers = []
-for word in words:
-    set1 = set()  
-    for char in word:
-        if char.isdigit(): 
-            set1.add(char) 
-    if set1:  
-        numbers.append(set1)
-
-if numbers:
-    intersection = set.intersection(*numbers)
-else:
-    intersection = set()
-
-print("Слова, які не містять літери 'а':", words)
-print("Перетин всіх множин цифр:", intersection)
+file2 = open("file2.txt", "r")
+sum = 0
+for i in file2:
+    parts = i.split()
+    for j in parts:
+            num = float(j)
+            if num.is_integer():
+                sum += int(num)
+file2.close()
+print("Сума цілих чисел у файлі:", sum)
