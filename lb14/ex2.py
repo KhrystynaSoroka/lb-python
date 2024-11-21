@@ -4,7 +4,7 @@ class Student:
         self.specialty = specialty
         self.course = course
     def calculate_group(self):
-        specialty_code = sum(ord(char) for char in self.specialty[:2])
+        specialty_code = 121
         return specialty_code % 10 + self.course * 10
 class InternStudent(Student):
     def __init__(self, name, specialty, course, internship_place):
